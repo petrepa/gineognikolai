@@ -10,6 +10,31 @@
 <meta property="og:image" content="https://gineognikolai.com/gine-nikolai.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='21' r='8.5' fill='none' stroke='%23e8b44a' stroke-width='3'/%3E%3Cpath d='M16 2.5 22 9 16 15.5 10 9Z' fill='%23bfe4f5' stroke='%23f2fbff' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
+  .lang-switch {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+  .lang-switch button {
+    font: inherit;
+    letter-spacing: inherit;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 0.2em;
+    opacity: 0.55;
+    cursor: pointer;
+  }
+  .lang-switch button[aria-current="true"] {
+    opacity: 0.95;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .lang-switch button:hover { opacity: 0.9; }
+  .lang-switch span { opacity: 0.4; }
   :root { color-scheme: dark; }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -53,9 +78,70 @@
 </style>
 </head>
 <body>
+  <nav class="lang-switch" aria-label="Language">
+    <button type="button" data-lang="nn">NN</button><span>/</span><button type="button" data-lang="nb">NB</button><span>/</span><button type="button" data-lang="en">EN</button>
+  </nav>
   <main>
-    <h1><span class="names">Gine &amp; Nikolai</span>Bryllaup 2028</h1>
-    <p>Informasjon kjem</p>
+    <h1><span class="names" data-i18n="names">Gine &amp; Nikolai</span><span data-i18n="heading">Bryllaup 2028</span></h1>
+    <p data-i18n="subtext">Informasjon kjem</p>
   </main>
+  <script>
+    var translations = {
+      nn: {
+        lang: "nn",
+        title: "Gine og Nikolai — Bryllaup 2028",
+        description: "Bryllaup 2028. Informasjon kjem.",
+        ogTitle: "Gine og Nikolai — Bryllaup 2028",
+        ogDescription: "Informasjon kjem.",
+        names: "Gine &amp; Nikolai",
+        heading: "Bryllaup 2028",
+        subtext: "Informasjon kjem"
+      },
+      nb: {
+        lang: "nb",
+        title: "Gine og Nikolai — Bryllup 2028",
+        description: "Bryllup 2028. Informasjon kommer.",
+        ogTitle: "Gine og Nikolai — Bryllup 2028",
+        ogDescription: "Informasjon kommer.",
+        names: "Gine &amp; Nikolai",
+        heading: "Bryllup 2028",
+        subtext: "Informasjon kommer"
+      },
+      en: {
+        lang: "en",
+        title: "Gine and Nikolai — Wedding 2028",
+        description: "Wedding 2028. Details to come.",
+        ogTitle: "Gine and Nikolai — Wedding 2028",
+        ogDescription: "Details to come.",
+        names: "Gine &amp; Nikolai",
+        heading: "Wedding 2028",
+        subtext: "Details to come"
+      }
+    };
+
+    function applyLang(lang) {
+      var t = translations[lang] || translations.nn;
+      document.documentElement.lang = t.lang;
+      document.title = t.title;
+      document.querySelector('meta[name="description"]').setAttribute("content", t.description);
+      document.querySelector('meta[property="og:title"]').setAttribute("content", t.ogTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute("content", t.ogDescription);
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        el.innerHTML = t[el.getAttribute("data-i18n")];
+      });
+      document.querySelectorAll(".lang-switch button").forEach(function (btn) {
+        btn.setAttribute("aria-current", btn.getAttribute("data-lang") === t.lang ? "true" : "false");
+      });
+      localStorage.setItem("lang", t.lang);
+    }
+
+    document.querySelectorAll(".lang-switch button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        applyLang(btn.getAttribute("data-lang"));
+      });
+    });
+
+    applyLang(localStorage.getItem("lang") || "nn");
+  </script>
 </body>
 </html>
