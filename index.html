@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gine og Nikolai — Bryllaup 2028</title>
-<meta name="description" content="Bryllaup 2028. Informasjon kjem.">
-<meta property="og:title" content="Gine og Nikolai — Bryllaup 2028">
-<meta property="og:description" content="Informasjon kjem.">
+<title>Gine og Nikolai — Bryllaup 28. mai 2028</title>
+<meta name="description" content="Bryllaup 28. mai 2028. Meir informasjon kjem.">
+<meta property="og:title" content="Gine og Nikolai — Bryllaup 28. mai 2028">
+<meta property="og:description" content="28. mai 2028. Meir informasjon kjem.">
 <meta property="og:image" content="https://gineognikolai.com/gine-nikolai.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='21' r='8.5' fill='none' stroke='%23e8b44a' stroke-width='3'/%3E%3Cpath d='M16 2.5 22 9 16 15.5 10 9Z' fill='%23bfe4f5' stroke='%23f2fbff' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
@@ -75,6 +75,12 @@
     letter-spacing: 0.12em;
     opacity: 0.85;
   }
+  .date {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    letter-spacing: 0.08em;
+    opacity: 0.95;
+  }
+  .date + p { margin-top: 0.8rem; font-size: clamp(0.85rem, 2.8vw, 1.05rem); opacity: 0.75; }
 </style>
 </head>
 <body>
@@ -82,40 +88,44 @@
     <button type="button" data-lang="nn">NN</button><span>/</span><button type="button" data-lang="nb">NB</button><span>/</span><button type="button" data-lang="en">EN</button>
   </nav>
   <main>
-    <h1><span class="names" data-i18n="names">Gine &amp; Nikolai</span><span data-i18n="heading">Bryllaup 2028</span></h1>
-    <p data-i18n="subtext">Informasjon kjem</p>
+    <h1><span class="names" data-i18n="names">Gine &amp; Nikolai</span><span data-i18n="heading">Bryllaup</span></h1>
+    <p class="date"><time datetime="2028-05-28" data-i18n="date">28. mai 2028</time></p>
+    <p data-i18n="subtext">Meir informasjon kjem</p>
   </main>
   <script>
     var translations = {
       nn: {
         lang: "nn",
-        title: "Gine og Nikolai — Bryllaup 2028",
-        description: "Bryllaup 2028. Informasjon kjem.",
-        ogTitle: "Gine og Nikolai — Bryllaup 2028",
-        ogDescription: "Informasjon kjem.",
+        title: "Gine og Nikolai — Bryllaup 28. mai 2028",
+        description: "Bryllaup 28. mai 2028. Meir informasjon kjem.",
+        ogTitle: "Gine og Nikolai — Bryllaup 28. mai 2028",
+        ogDescription: "28. mai 2028. Meir informasjon kjem.",
         names: "Gine &amp; Nikolai",
-        heading: "Bryllaup 2028",
-        subtext: "Informasjon kjem"
+        heading: "Bryllaup",
+        date: "28. mai 2028",
+        subtext: "Meir informasjon kjem"
       },
       nb: {
         lang: "nb",
-        title: "Gine og Nikolai — Bryllup 2028",
-        description: "Bryllup 2028. Informasjon kommer.",
-        ogTitle: "Gine og Nikolai — Bryllup 2028",
-        ogDescription: "Informasjon kommer.",
+        title: "Gine og Nikolai — Bryllup 28. mai 2028",
+        description: "Bryllup 28. mai 2028. Mer informasjon kommer.",
+        ogTitle: "Gine og Nikolai — Bryllup 28. mai 2028",
+        ogDescription: "28. mai 2028. Mer informasjon kommer.",
         names: "Gine &amp; Nikolai",
-        heading: "Bryllup 2028",
-        subtext: "Informasjon kommer"
+        heading: "Bryllup",
+        date: "28. mai 2028",
+        subtext: "Mer informasjon kommer"
       },
       en: {
         lang: "en",
-        title: "Gine and Nikolai — Wedding 2028",
-        description: "Wedding 2028. Details to come.",
-        ogTitle: "Gine and Nikolai — Wedding 2028",
-        ogDescription: "Details to come.",
+        title: "Gine and Nikolai — Wedding 28 May 2028",
+        description: "Wedding 28 May 2028. More details to come.",
+        ogTitle: "Gine and Nikolai — Wedding 28 May 2028",
+        ogDescription: "28 May 2028. More details to come.",
         names: "Gine &amp; Nikolai",
-        heading: "Wedding 2028",
-        subtext: "Details to come"
+        heading: "Wedding",
+        date: "28 May 2028",
+        subtext: "More details to come"
       }
     };
 
